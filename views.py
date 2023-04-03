@@ -144,6 +144,12 @@ SELECT `school_db_instructor`.`id`,
 # Print the instructors name and courses that he belongs to in the terminal
 # (Do not hard code his name in the print)
 def problem_three(request):
+    instructor = Instructor.objects.prefetch_related("course_set").get(id=2)
+    courses = instructor.course_set.all()
+    for course in courses:
+        print(f" Instructor Name: {instructor.first_name} {instructor.last_name} Courses:\n {course.name}")
+
+    
 
     return complete(request)
 
