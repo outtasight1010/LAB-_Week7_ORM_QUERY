@@ -149,8 +149,6 @@ def problem_three(request):
     for course in courses:
         print(f" Instructor Name: {instructor.first_name} {instructor.last_name} Courses:\n {course.name}")
 
-    
-
     return complete(request)
 
 
@@ -196,7 +194,11 @@ SELECT `school_db_instructor`.`id`,
 
 # Get the count of students, courses, and instructors and print them in the terminal
 def problem_four(request):
-
+    student_count = Student.count()
+    course_count = Course.count()
+    instructor_count = Instructor.count()
+    
+    print(f"Instructor Count: {instructor_count} Course Count: {course_count} Student Count: {student_count}")
     return complete(request)
 
 
